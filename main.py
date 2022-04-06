@@ -35,8 +35,8 @@ for x in games:
     else:
         player_color = "black"
     acpl = x["players"][player_color]["analysis"]["acpl"]
-    average_acpl = (average_acpl * game_count + acpl) / (game_count + 1)
     game_count = game_count + 1
+    average_acpl = (average_acpl * (game_count - 1) + acpl) / (game_count)
     total_average.append(average_acpl)
     total_count.append(game_count)
 plt.suptitle(f"{username}")
